@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+            android:orientation="vertical"
+                  android:background="#FDFDFD">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                android:layout_weight="1.5"/>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                    android:layout_weight="1">
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="match_parent"
+                        android:src="@drawable/zenith"/>
+
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    <Button android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/button_shape1" android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp" android:layout_marginRight="20dp"
+                            android:layout_marginBottom="20dp" android:textSize="30dp" android:textColor="#ffffffff"
+                            android:text="WELCOME" android:id="@+id/btnEnter2"/>
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                            android:layout_weight="1"></LinearLayout>
+                    </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+

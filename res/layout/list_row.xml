@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector"
+                android:orientation="horizontal"
+                android:padding="5dip" >
+
+    <!--  ListRow Left sied Thumbnail image -->
+    <LinearLayout android:id="@+id/thumbnail"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:padding="3dip"
+                  android:layout_alignParentLeft="true"
+                  android:background="@drawable/image_bg"
+                  android:layout_marginRight="5dip">
+
+        <TextView
+                android:id="@+id/list_image"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:text="DR"
+                android:singleLine="true" android:textSize="30dp" android:gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- Title Of Song-->
+    <TextView
+            android:id="@+id/txtListDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/thumbnail"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:text="Description goes here"
+            android:textColor="@color/zenithred"
+            android:typeface="sans"
+            android:textSize="15dip"
+            android:textStyle="bold"/>
+
+    <!-- Artist Name -->
+    <TextView
+            android:id="@+id/txtListAmount"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtListDesc"
+            android:textColor="@color/zenithred"
+            android:textSize="12dip"
+            android:layout_marginTop="1dip"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:text="Amount Goes Here" />
+    <TextView
+            android:id="@+id/txtListAccount"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtListAmount"
+            android:textColor="@color/zenithred"
+            android:textSize="10dip"
+            android:layout_marginTop="1dip"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:text="Account here" android:singleLine="true"/>
+
+
+    <!-- Rightend Duration -->
+    <TextView
+            android:id="@+id/txtListDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/thumbnail"
+            android:layout_below="@id/txtListAccount"
+            android:gravity="right"
+            android:textSize="12dip"
+            android:text="date"
+            android:textColor="@color/zenithred"/>
+
+    <!-- Rightend Arrow -->
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/logo3"
+               android:layout_alignParentRight="true"
+               android:layout_centerVertical="true"/>
+
+</RelativeLayout>

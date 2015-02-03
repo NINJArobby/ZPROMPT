@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FDFDFD">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1">
+            <ImageView android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:src="@drawable/zenith"/>
+
+        </LinearLayout>
+        <View
+                android:id="@+id/list_item_seperator"
+                android:layout_width="match_parent"
+                android:layout_height="10dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+               />
+
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1"
+                android:orientation="vertical" android:layout_marginLeft="10dp" android:layout_marginRight="10dp">
+            <Button android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/btnIbankSignup"
+                    android:text="USE INTERNET BANKING CREDENTIALS"
+                    android:background="@drawable/button_shape1"
+                    android:textColor="#ffffffff"/>
+            <View
+                    android:id="@+id/list_item_seperator13"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dip"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    />
+
+
+            <Button android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/btnDirectSignup"
+                    android:text="SIGNUP WITH ACCESS TOKEN"
+                    android:background="@drawable/button_shape1"
+                    android:textColor="#ffffffff"
+                    />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1">
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

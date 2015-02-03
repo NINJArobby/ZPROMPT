@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        >
+    <item android:id="@+id/menu_reload"
+          android:icon="@drawable/refresh"
+          android:title="ReLoad"
+            android:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/menu_bank"
+          android:icon="@drawable/globe_red"
+          android:title="iBank"
+          android:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/menu_search"
+          android:icon="@drawable/search"
+          android:title="Search"
+          android:showAsAction="ifRoom"/>
+
+
+</menu>

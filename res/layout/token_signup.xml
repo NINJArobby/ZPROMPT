@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" android:background="@color/WhiteSmoke" >
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:id="@+id/MviewLayout">
+        <ImageView
+                android:id="@+id/TViewRes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" android:background="@drawable/zene"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="5.0"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/edTxtToken"
+                    android:text="Verification Token"
+                    style="@style/EditTextAppTheme"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:textColor="#060606"
+                    />
+        </LinearLayout>
+        <Button
+                android:id="@+id/btnregister"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:text="Register"
+                android:background="@drawable/button_shape1"
+                />
+    </LinearLayout>
+
+
+</LinearLayout>

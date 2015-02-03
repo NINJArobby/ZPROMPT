@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:background="#FDFDFD">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="4"
+                          android:orientation="vertical"
+                          android:layout_marginRight="5dp"
+                          android:layout_marginTop="2dp"
+                          android:id="@+id/listHolder1"    >
+
+
+                <ListView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="#b5b5b5"
+                        android:dividerHeight="1dp"
+                        android:listSelector="@drawable/list_selector"
+                        android:id="@+id/listTrsx1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"/>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:layout_weight=".7"
+                             >
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_weight="6"
+                          android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:layout_weight=".3"
+                              android:orientation="vertical">
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="1"
+                                  android:orientation="horizontal"
+                                  android:layout_marginBottom="5dp"
+                                  android:layout_marginTop="5dp">
+
+                        <TextView android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight=".7"
+                                  android:text="Tap To Select Starting Date"
+                                  android:gravity="center"
+                                  android:textSize="20dp"
+                                  android:textColor="@color/zenithred"
+                                  style="@style/TabTextAppTheme"
+                                  android:id="@+id/txtFromdate1"/>
+
+                    </LinearLayout>
+
+                    <View
+                            android:id="@+id/list_item_seperator"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="5dip"
+                            android:layout_marginRight="5dip"
+                            android:background="@color/zenithred" />
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="1"
+                                  android:layout_marginBottom="5dp" android:layout_marginTop="5dp">
+
+                        <LinearLayout android:layout_width="match_parent"
+                                      android:layout_height="match_parent"
+                                      android:layout_weight="1"
+                                      android:orientation="horizontal">
+
+                            <TextView android:layout_width="match_parent"
+                                      android:layout_height="match_parent"
+                                      android:layout_weight=".7"
+                                      android:text="Tap To Select End Date"
+                                      android:gravity="center"
+                                      android:textSize="20dp"
+                                      android:textColor="@color/zenithred"
+                                      style="@style/TabTextAppTheme"
+                                      android:id="@+id/txtEndDatae1"/>
+
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <View
+                            android:id="@+id/list_item_seperatoro"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_marginLeft="5dip"
+                            android:layout_marginRight="5dip"
+                            android:background="@color/zenithred" />
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="1"
+                                  android:orientation="horizontal">
+
+                        <Spinner android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 android:id="@+id/SpnAccts11"
+                                 style="@style/SpinnerDropDownItemAppTheme"
+                                 android:theme="@style/SpinnerDropDownItemAppTheme"
+                                 android:background="@drawable/button_shape1"
+                                 android:layout_marginTop="10dp"
+                                 android:layout_marginLeft="10dp"
+                                 android:layout_marginRight="10dp">
+
+                        </Spinner>
+                    </LinearLayout>
+
+
+                    <LinearLayout android:layout_width="match_parent"
+                                  android:layout_height="match_parent"
+                                  android:layout_weight="1">
+
+                        <Button android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/button_shape1"
+                                android:textColor="#ffffffff"
+                                android:text="Search"
+                                android:id="@+id/btnSearch11"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:textSize="30dp"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="match_parent"
+                              android:layout_weight=".7"
+                              android:background="@drawable/logo4">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
