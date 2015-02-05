@@ -24,8 +24,8 @@ import java.util.StringTokenizer;
 /**
  * Created by Robby on 6/20/2014.
  */
-public class ReceiveActivity extends Activity {
-
+public class ReceiveActivity extends Activity
+{
     TextView date;
     TextView account;
     TextView amount;
@@ -43,7 +43,7 @@ public class ReceiveActivity extends Activity {
     View promptsView;
     Intent _records;
     public static Activity receive;
-    //jeSQLiteDatabase MyDb;
+    //SQLiteDatabase MyDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

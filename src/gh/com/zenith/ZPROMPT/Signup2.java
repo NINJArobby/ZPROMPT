@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,10 +34,6 @@ public class Signup2 extends Activity
     GoogleCloudMessaging gcm;
     String SOAP_ACTION_VERIFY_ACCT = "http://tempuri.org/Signup2_Verify_Acct";
     String SOAP_METHOD_NAME_AUTHENTICATE = "Signup2_Verify_Acct";
-    public static final String EXTRA_MESSAGE = "message";
-    public static final String PROPERTY_REG_ID = "NeWregistrationID_za";
-    private static final String PROPERTY_APP_VERSION = "appVersion";
-    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     String SOAP_URL = "http://196.216.180.26:85/ibank/Service1.asmx";
 
     String SOAP_NAMESPACE = "http://tempuri.org/";
@@ -76,7 +71,8 @@ public class Signup2 extends Activity
         {
             @Override
             public void onClick(View v)
-            {
+            { progressDialog = ProgressDialog.show(Signup2.this,
+                    "Requesting Token", "Please Wait...");
                 new RegisterBackground().execute();
             }
         });
@@ -110,15 +106,13 @@ public class Signup2 extends Activity
                     if (result.equals("true"))
                     {
                         done = true;
-                        progressDialog.dismiss();
                     }
                 }
                 catch (Exception ex)
                 {
                     ex.toString();
-                    progressDialog.dismiss();
+
                 }
-            Log.d("111", msg);
             return msg;
         }
 
@@ -127,8 +121,8 @@ public class Signup2 extends Activity
         {
             if(done)
             {
-                askPass();
-                setSinedUp();
+                progressDialog.dismiss();
+                Alert();
             }
             else
             {
@@ -144,13 +138,13 @@ public class Signup2 extends Activity
         super.onBackPressed();
     }
 
-    void AlertSuccess()
+    void Alert()
     {
         // Locate the TextView
-        new AlertDialog.Builder(getApplicationContext())
-                .setTitle("ALERT")
-                .setMessage("we will send you a token shortly. Please use that to finish the signup. ")
-                .setPositiveButton("Proceed", new DialogInterface.OnClickListener()
+        new AlertDialog.Builder(Signup2.this)
+                .setTitle("   ")
+                .setMessage("we will send you a token shortly. Please use that to finish the signup.")
+                .setNegativeButton("Proceed", new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which)
@@ -158,13 +152,13 @@ public class Signup2 extends Activity
                         // TODO Auto-generated method stub
                         startActivity(_verifyToken);
                     }
-                }).setIcon(R.drawable.icon).show();
+                }).setIcon(R.drawable.alert).show();
     }
 
     void AlertError()
     {
         // Locate the TextView
-        new AlertDialog.Builder(getApplicationContext())
+        new AlertDialog.Builder(Signup2.this)
                 .setTitle("Error!!!")
                 .setMessage("Something went wrong. please wait a while and try again")
                 .setNegativeButton("Proceed", new DialogInterface.OnClickListener()

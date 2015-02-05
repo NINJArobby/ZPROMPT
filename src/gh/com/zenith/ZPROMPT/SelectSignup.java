@@ -33,7 +33,7 @@ public class SelectSignup extends Activity
         ActionBar actionBar = getActionBar();
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.color.zenithred));
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setTitle("Token Registration");
+        actionBar.setTitle("Registration Selection");
         actionBar.setLogo(R.drawable.logo3);
 
         iBank.setOnClickListener(new View.OnClickListener()
@@ -65,10 +65,10 @@ public class SelectSignup extends Activity
     {
         // Locate the TextView
         new AlertDialog.Builder(SelectSignup.this)
-                .setTitle("Welcome...")
+                .setTitle("   ")
                 .setMessage("Please choose a method for signup. if you are registered on internet banking,"+
                         "you can signup using your login credentials. Otherwise, you would need to request "+
-                        "for a signup token from any Zenith Bank Ghana Branch.")
+                        "for a signup token.")
                 .setNegativeButton("Proceed", new DialogInterface.OnClickListener()
                 {
                     @Override

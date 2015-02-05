@@ -27,7 +27,8 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:id="@+id/MviewLayout"
-                    android:background="@drawable/zenith">
+                    android:background="@drawable/zenith" android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp">
 
             </LinearLayout>
             <LinearLayout
@@ -45,7 +46,6 @@
                     <EditText
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:inputType="number"
                             android:ems="10"
                             android:id="@+id/edTxtTokenVerify"
                             android:text="Verification Token"
@@ -58,7 +58,7 @@
                 <Button
                         android:id="@+id/btnregisterToken"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="100dp"
                         android:layout_centerInParent="true"
                         android:text="Register"
                         android:background="@drawable/button_shape1"
