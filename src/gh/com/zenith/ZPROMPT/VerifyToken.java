@@ -1,6 +1,5 @@
 package gh.com.zenith.ZPROMPT;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -14,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
@@ -21,103 +21,117 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-/**
- * Created by Robby on 1/25/2015.
- */
-public class Signup2 extends Activity
+public class VerifyToken extends Activity
 {
-    Intent records;
-    SQLiteDatabase MyDb;
-    EditText code;
-    Button doSignup;
-    public static Activity Signup2;
+    EditText token;
+    Button _doToken;
+    String SOAP_ACTION_AUTHENTICATE = "http://tempuri.org/DoSignup2 ";
+    String SOAP_METHOD_NAME_AUTHENTICATE = "DoSignup2 ";
 
-    GoogleCloudMessaging gcm;
-    String SOAP_ACTION_VERIFY_ACCT = "http://tempuri.org/Signup2_Verify_Acct";
-    String SOAP_METHOD_NAME_AUTHENTICATE = "Signup2_Verify_Acct";
-    public static final String EXTRA_MESSAGE = "message";
-    public static final String PROPERTY_REG_ID = "NeWregistrationID_za";
-    private static final String PROPERTY_APP_VERSION = "appVersion";
-    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    String SOAP_URL = "http://196.216.180.26:85/ibank/Service1.asmx";
-
+    String SOAP_URL = "http://196.216.180.26:85/iBank/Service1.asmx";
     String SOAP_NAMESPACE = "http://tempuri.org/";
     String regid;
 
-    Intent _verifyToken;
     ProgressDialog progressDialog;
     String SENDER_ID = "623887383809";
-    public static Activity home;
-    String Password = "";
+    public static Activity verifyHome;
     static final String TAG = "ZPROMPT";
+    GoogleCloudMessaging gcm;
+    SQLiteDatabase MyDb;
+
+    Intent records;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.token_signup);
-        ActionBar actionBar = getActionBar();
+        setContentView(R.layout.verify_signup);
+        token = (EditText)findViewById(R.id.edTxtTokenVerify);
+        _doToken = (Button)findViewById(R.id.btnregisterToken);
 
-        records = new Intent(this, Records.class);
-        records.putExtra("FLAG","SIN2");
-        MyDb = this.openOrCreateDatabase("ZapNotification", MODE_PRIVATE, null);
-        code = (EditText)findViewById(R.id.edTxtToken);
-        doSignup = (Button)findViewById(R.id.btnregister);
-        Signup2=this;
-        _verifyToken = new Intent(this,VerifyToken.class);
+        verifyHome=this;
+        records = new Intent(this,Records.class);
 
-
-        actionBar.setBackgroundDrawable(getResources().getDrawable(R.color.zenithred));
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setTitle("Token Registration");
-        actionBar.setLogo(R.drawable.logo3);
-
-        doSignup.setOnClickListener(new View.OnClickListener()
+        token.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                new RegisterBackground().execute();
+                token.setText("");
             }
         });
+
+        _doToken.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                progressDialog = ProgressDialog.show(VerifyToken.this,
+                        "Finishing Signup", "Please Wait...");
+                new DoVerifyToken().execute();
+            }
+        });
+
     }
 
-    class RegisterBackground extends AsyncTask<String, String, String>
+    class DoVerifyToken extends AsyncTask<String, String, String>
     {
         boolean done = false;
         String msg;
         @Override
         protected String doInBackground(String... arg0)
         {
+            try
+            {
+                gcm = GoogleCloudMessaging.getInstance(getApplicationContext());
+                regid = gcm.register(SENDER_ID);
+            }
+
+            catch (UnsupportedOperationException ex)
+            {
+                Toast.makeText(getApplicationContext(), "SORRY, YOUR DEVICE DOES NOT SUPPORT" +
+                                " PUSH NOTIFICATION",
+                        Toast.LENGTH_LONG).show();
+            }
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+
+            if(!regid.isEmpty())
+            {
                 String _msg = null;
                 SoapObject request = new SoapObject(SOAP_NAMESPACE, SOAP_METHOD_NAME_AUTHENTICATE);
                 PropertyInfo pi1 = new PropertyInfo();
 
-                pi1.setName("Acct_no");
-                pi1.setValue(code.getText().toString().trim());//get the string that is to be sent to the web service
+                pi1.setName("token");
+                pi1.setValue(token.getText().toString().trim());//get the string that is to be sent to the web service
                 pi1.setType(String.class);
                 request.addProperty(pi1);
-                try
-                {
+
+                PropertyInfo pi2 = new PropertyInfo();
+                pi2.setName("devID");
+                pi2.setValue(regid);
+                pi2.setType(String.class);
+                request.addProperty(pi2);
+
+                try {
                     SoapSerializationEnvelope envp = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                     envp.dotNet = true;
                     envp.setOutputSoapObject(request);
                     HttpTransportSE androidHttpTransport = new HttpTransportSE(SOAP_URL);
-                    androidHttpTransport.call(SOAP_ACTION_VERIFY_ACCT, envp);
+                    androidHttpTransport.call(SOAP_ACTION_AUTHENTICATE, envp);
                     //edit made here
                     Object response = envp.getResponse();
                     String result = response.toString();
-                    if (result.equals("true"))
-                    {
+                    if (result.equals("true")) {
                         done = true;
                         progressDialog.dismiss();
                     }
-                }
-                catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     ex.toString();
                     progressDialog.dismiss();
                 }
+            }
             Log.d("111", msg);
             return msg;
         }
@@ -148,15 +162,15 @@ public class Signup2 extends Activity
     {
         // Locate the TextView
         new AlertDialog.Builder(getApplicationContext())
-                .setTitle("ALERT")
-                .setMessage("we will send you a token shortly. Please use that to finish the signup. ")
+                .setTitle("Success!!!")
+                .setMessage("Press Button To Proceed")
                 .setPositiveButton("Proceed", new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which)
                     {
                         // TODO Auto-generated method stub
-                        startActivity(_verifyToken);
+                        startActivity(records);
                     }
                 }).setIcon(R.drawable.icon).show();
     }
@@ -166,7 +180,7 @@ public class Signup2 extends Activity
         // Locate the TextView
         new AlertDialog.Builder(getApplicationContext())
                 .setTitle("Error!!!")
-                .setMessage("Something went wrong. please wait a while and try again")
+                .setMessage("Please Check Credentials and try again")
                 .setNegativeButton("Proceed", new DialogInterface.OnClickListener()
                 {
                     @Override
@@ -236,13 +250,23 @@ public class Signup2 extends Activity
     void savePass(String pass)
     {
         MyDb.execSQL("UPDATE CUSTOMER"+
-                " SET DROIDPASS ='"+pass+"';");
+                " SET DROIDPASS ='"+Encrypt(pass)+"';");
     }
 
     void setSinedUp()
     {
         MyDb.execSQL("UPDATE CUSTOMER"+
                 " SET SIGNEDUP ='YES';");
+    }
+
+    void saveName(String name)
+    {
+        MyDb.execSQL("UPDATE CUSTOMER SET USERNAME ='"+ name +"';");
+    }
+
+    void saveAccts(String acct)
+    {
+        MyDb.execSQL("INSERT INTO ACCOUNTS(ACCT_NO) VALUES('"+acct+"';");
     }
 
     public String Encrypt(String data)
@@ -283,5 +307,4 @@ public class Signup2 extends Activity
         }
         return output;
     }
-
 }

@@ -7,7 +7,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.InputType;
@@ -23,7 +22,6 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -45,7 +43,7 @@ public class Signup extends Activity
     public static final String PROPERTY_REG_ID = "NeWregistrationID_za";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    String SOAP_URL = "http://196.216.180.26:85/iBankService/Service1.asmx";
+    String SOAP_URL = "http://196.216.180.26:85/iBank/Service1.asmx";
     String SOAP_NAMESPACE = "http://tempuri.org/";
     String regid;
 

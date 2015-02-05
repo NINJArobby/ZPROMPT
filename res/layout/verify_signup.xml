@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical" android:background="@color/WhiteSmoke">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="#FDFDFD">
+               <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                       android:text="PLEASE TYPE THE TOKEN SENT TO YOU IN THE INPUT BOX BELOW TO FINISH SIGN UP."
+                       android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+                       android:textColor="@color/zenithred" android:textIsSelectable="false" android:textSize="20dp"
+                       android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/MviewLayout"
+                    android:background="@drawable/zenith">
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                    <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/edTxtTokenVerify"
+                            android:text="Verification Token"
+                            style="@style/EditTextAppTheme"
+                            android:layout_weight="1"
+                            android:singleLine="true"
+                            android:textColor="#060606"
+                            />
+                </LinearLayout>
+                <Button
+                        android:id="@+id/btnregisterToken"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="Register"
+                        android:background="@drawable/button_shape1"
+                        android:textColor="#ffffffff"
+                        android:textSize="20dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

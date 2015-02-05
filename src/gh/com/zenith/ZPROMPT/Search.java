@@ -44,7 +44,7 @@ public class Search extends Activity {
     public static final String PROPERTY_REG_ID = "NeWregistrationID_za";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    String SOAP_URL = "http://196.216.180.26:85/ibankService/Service1.asmx";
+    String SOAP_URL = "http://196.216.180.26:85/ibank/Service1.asmx";
     String SOAP_NAMESPACE = "http://tempuri.org/";
     static final String KEY_DESC = "song"; // parent node
     static final String KEY_AMOUNT = "id";
